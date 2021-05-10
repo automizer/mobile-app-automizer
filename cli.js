@@ -3,9 +3,9 @@ const { greetings, hasConfig, hasParam } = require('./utils/utils');
 
 const cli = () => {
   if (!hasConfig() || hasParam('--install')) {
-    require('./installer')();
+    require('./src/installer')();
   } else {
-    require('./automizer')();
+    require('./src/automizer')();
   }
 };
 

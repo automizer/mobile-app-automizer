@@ -1,6 +1,6 @@
-const { ask, askConfirm, askInput, log } = require('./utils/utils');
-const tmpConfig = require('./templates/config');
-const tmpExportOptions = require('./templates/exportOptions');
+const { ask, askConfirm, askInput, log } = require('../utils/utils');
+const tmpConfig = require('../templates/config');
+const tmpExportOptions = require('../templates/exportOptions');
 const fs = require('fs');
 
 const installer = async () => {
