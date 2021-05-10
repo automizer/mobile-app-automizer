@@ -1,6 +1,6 @@
 const { execSync } = require('child_process');
-const { run, env } = require('./utils/utils');
-const tmpManifest = require('./templates/manifest');
+const { run, env } = require('../utils/utils');
+const tmpManifest = require('../templates/manifest');
 const fs = require('fs');
 const ora = require('ora');
 

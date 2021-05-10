@@ -1,6 +1,6 @@
-const version = require('./version');
-const ios = require('./ios');
-const android = require('./android');
+const version = require('./processes/version');
+const ios = require('./processes/ios');
+const android = require('./processes/android');
 const config = require(`${process.cwd()}/.ma-automizer`);
 
 const automizer = async () => {

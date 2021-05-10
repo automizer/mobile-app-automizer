@@ -1,4 +1,4 @@
-const { run, env } = require('./utils/utils');
+const { run, env } = require('../utils/utils');
 const fs = require('fs');
 const ora = require('ora');
 
