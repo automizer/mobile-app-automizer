@@ -1,0 +1,35 @@
+{
+  "name": "mobile-app-automizer",
+  "version": "0.0.1",
+  "description": "You can automize iOS and Android app's build, upload and versioning processes.",
+  "main": "cli.js",
+  "bin": {
+    "mobile-app-automizer": "cli.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Trendyol/mobile-app-automizer.git"
+  },
+  "keywords": [
+    "mobile",
+    "app",
+    "automizer",
+    "builder",
+    "uploader",
+    "ios",
+    "android",
+    "react-native",
+    "flutter",
+    "ionic"
+  ],
+  "author": "Sercan Eraslan",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/Trendyol/mobile-app-automizer/issues"
+  },
+  "homepage": "https://github.com/Trendyol/mobile-app-automizer#readme",
+  "dependencies": {
+    "enquirer": "2.3.6",
+    "ora": "5.4.0"
+  }
+}
