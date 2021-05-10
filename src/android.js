@@ -19,7 +19,7 @@ const upload = async (config) => {
     const gradleFile = fs.readFileSync(path.gradle).toString();
     const buildNumber = gradleFile.match(/versionCode (\d+)/)[1];
 
-    await config.upload.android.uploadApk(path.apk[env], env, buildNumber);
+    await config.android.upload.cdn.uploadApk(path.apk[env], env, buildNumber);
   } else {
     run(`cd ${path.root} && ./gradlew publishReleaseApk && cd ..`);
   }
