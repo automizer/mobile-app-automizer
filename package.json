@@ -1,6 +1,6 @@
 {
   "name": "mobile-app-automizer",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "You can automize iOS and Android app's build, upload and versioning processes.",
   "main": "cli.js",
   "bin": {
