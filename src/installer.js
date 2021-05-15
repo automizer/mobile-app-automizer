@@ -2,10 +2,13 @@ const { ask, askConfirm, askInput, log } = require('../utils/utils');
 const tmpConfig = require('../templates/config');
 const tmpExportOptions = require('../templates/exportOptions');
 const fs = require('fs');
+const { greetings } = require('../utils/utils');
 
 const installer = async () => {
   const ios = {};
   const android = {};
+
+  greetings();
 
   ios.build = await askConfirm('1', 'Do you want to build iOS App');
 

@@ -2,8 +2,11 @@ const version = require('./version');
 const ios = require('./ios');
 const android = require('./android');
 const config = require(`${process.cwd()}/.ma-automizer`);
+const { greetings } = require('../utils/utils');
 
 const automizer = async () => {
+  greetings();
+
   await version.update(config);
 
   config.ios.build.enabled && await ios.build(config);

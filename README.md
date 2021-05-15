@@ -107,7 +107,7 @@ PS: If you use versioning, you should have **package.json** file in your repo.
 
 ## Support
 
-If you have an issue with this CLI tool, please open an [issue](https://github.com/Trendyol/mobile-app-automizer/issues).
+If you have an issue with this CLI tool, please open an [issue](https://github.com/automizer/mobile-app-automizer/issues).
 
 ## Contributing
 
