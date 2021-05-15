@@ -105,6 +105,26 @@ mobile-app-automizer --major
 
 PS: If you use versioning, you should have **package.json** file in your repo.
 
+### Clean
+
+If you want clean build for iOS and Android app, you can give **--clean** parameter as below.
+
+```bash
+mobile-app-automizer --clean
+```
+
+You can give extra **--ios** or **--android** parameters as below.
+
+```bash
+mobile-app-automizer --clean --ios
+```
+
+```bash
+mobile-app-automizer --clean --android
+```
+
+You can take a look [mobile-app-cleaner](https://github.com/automizer/mobile-app-cleaner) project for more information.
+
 ## Support
 
 If you have an issue with this CLI tool, please open an [issue](https://github.com/automizer/mobile-app-automizer/issues).
