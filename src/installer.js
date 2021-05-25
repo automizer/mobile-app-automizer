@@ -20,9 +20,11 @@ const installer = async () => {
 
     if (ios.upload) {
       ios.method = await ask('To where', ['app-store', 'cdn']);
-      ios.teamId = await askInput('6', 'What is your Apple teamID');
-      ios.bundleId = await askInput('7', 'What is your Production Bundle Identifier');
-      ios.bundleIdStage = await askInput('8', 'What is your Stage Bundle Identifier');
+      ios.username = await askInput('6', 'What is your Apple Username');
+      ios.password = await askInput('7', 'What is your Apple app-spesific Password');
+      ios.teamId = await askInput('8', 'What is your Apple teamID');
+      ios.bundleId = await askInput('9', 'What is your Production Bundle Identifier');
+      ios.bundleIdStage = await askInput('10', 'What is your Stage Bundle Identifier');
 
       const exportOptionsFile = tmpExportOptions
         .replace('{{METHOD}}', ios.method === 'cdn' ? 'enterprise' : 'app-store')
@@ -36,14 +38,14 @@ const installer = async () => {
     }
   }
 
-  android.build = await askConfirm('9', 'Do you want to build Android App');
+  android.build = await askConfirm('11', 'Do you want to build Android App');
 
   if (android.build) {
-    android.upload = await askConfirm('10', 'Do you want to upload your apps');
+    android.upload = await askConfirm('12', 'Do you want to upload your apps');
     android.method = await ask('To where', ['play-store', 'cdn']);
   }
 
-  const version = await askConfirm('11', 'Do you want versioning');
+  const version = await askConfirm('13', 'Do you want versioning');
 
   const configFile = tmpConfig
     .replace('{{IOS_BUILD}}', ios.build)
@@ -52,6 +54,8 @@ const installer = async () => {
     .replace('{{FIREBASE}}', ios.firebase || false)
     .replace('{{IOS_UPLOAD}}', ios.upload ||  false)
     .replace('{{IOS_METHOD}}', ios.method || '')
+    .replace('{{IOS_USERNAME}}', ios.username || '')
+    .replace('{{IOS_PASSWORD}}', ios.password || '')
     .replace('{{PRODUCTION_BUNDLE_IDENTIFER}}', ios.bundleId || '*')
     .replace('{{STAGE_BUNDLE_IDENTIFER}}', ios.bundleIdStage || '*')
     .replace('{{ANDROID_BUILD}}', android.build)

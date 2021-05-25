@@ -26,6 +26,8 @@ module.exports = `module.exports = {
     upload: {
       enabled: {{IOS_UPLOAD}},
       method: '{{IOS_METHOD}}',
+      username: '{{IOS_USERNAME}}',
+      password: '{{IOS_PASSWORD}}',
       bundleIdentifier: {
         production: '{{PRODUCTION_BUNDLE_IDENTIFER}}',
         stage: '{{STAGE_BUNDLE_IDENTIFER}}',

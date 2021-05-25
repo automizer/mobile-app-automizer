@@ -34,9 +34,9 @@ When you define all preferences, a config file called **.ma-automizer.js** will 
 
 If you choose to upload your app to your own CDN then don't forget to update functions and values on the upload section in the file **.ma-automizer.js**. This tool automatically creates **manifest.plist** and **exportOptions.plist** files for iOS app.
 
-**Apple App Store** (Experimental)
+**Apple App Store**
 
-If you choose to upload your app to Apple App Store then this CLI tool automatically will add **exportOptions.plist** file to your repo.
+If you choose to upload your app to Apple App Store (TestFlight) then you should create an [app-specific password](https://support.apple.com/en-us/HT204397) on your Apple ID account page. Also this CLI tool automatically will add **exportOptions.plist** file to your repo.
 
 **Google Play Store** (Experimental)
 

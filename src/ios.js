@@ -31,10 +31,11 @@ const build = async (config) => {
 
 const upload = async (config) => {
   const spinner = ora('iOS Uploading...').start();
+  const path = config.ios.path;
+  const iosUpload = config.ios.upload;
 
-  if (config.ios.upload.method === 'cdn') {
-    const path = config.ios.path;
-    const cdn = config.ios.upload.cdn;
+  if (iosUpload.method === 'cdn') {
+    const cdn = iosUpload.cdn;
     const command = '/usr/libexec/PlistBuddy -c "Print CFBundleVersion"';
     const version = execSync(`${command} ${path.infoPlist}`);
     const buildNumber = version.toString().replace('\n', '');
@@ -44,7 +45,7 @@ const upload = async (config) => {
       .replace('{{IPA_URL}}', ipaUrl)
       .replace('{{BUILD_NUMBER}}', buildNumber)
       .replace('{{TITLE}}', cdn.title[env])
-      .replace('{{BUNDLE_IDENTIFIER}}', config.ios.upload.bundleIdentifier[env]);
+      .replace('{{BUNDLE_IDENTIFIER}}', iosUpload.bundleIdentifier[env]);
 
     fs.writeFileSync(path.manifestPlist, manifestFile);
 
@@ -54,6 +55,13 @@ const upload = async (config) => {
       buildNumber,
       downloadLinkPrefix,
     );
+  } else {
+    const type = '--type ios';
+    const file = `--file ${path.ipa[env]}`;
+    const username = `--username ${iosUpload.username}`;
+    const password = `--password ${iosUpload.password}`;
+
+    run(`xcrun altool --upload-app ${type} ${file} ${username} ${password}`);
   }
 
   spinner.succeed('iOS Uploading Finished!');
