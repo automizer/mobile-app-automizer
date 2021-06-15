@@ -38,7 +38,7 @@ If you choose to upload your app to your own CDN then don't forget to update fun
 
 If you choose to upload your app to Apple App Store (TestFlight) then you should create an [app-specific password](https://support.apple.com/en-us/HT204397) on your Apple ID account page. Also this CLI tool automatically will add **exportOptions.plist** file to your repo.
 
-**Google Play Store** (Experimental)
+**Google Play Store**
 
 If you choose to upload your app to Google Play Store then you should install [gradle-play-publisher](https://github.com/Triple-T/gradle-play-publisher).
 
