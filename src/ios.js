@@ -4,6 +4,27 @@ const tmpManifest = require('../templates/manifest');
 const fs = require('fs');
 const ora = require('ora');
 
+const version = async (config, arguments) => {
+  if (env !== 'production') return;
+
+  const { version } = require(`${process.cwd()}/package.json`);
+
+  const spinner = ora('iOS Versioning...').start();
+  const root = config.ios.path.root;
+
+  run(`cd ${root} && agvtool new-marketing-version ${version} && cd ..`);
+
+  if (arguments.iosVersion) {
+    run(
+      `cd ${root} && agvtool new-version -all ${arguments.iosVersion} && cd ..`,
+    );
+  } else {
+    run(`cd ${root} && agvtool next-version -all && cd ..`);
+  }
+
+  spinner.succeed('iOS Versioning Finished!');
+};
+
 const build = async (config) => {
   const spinner = ora('iOS Building...').start();
   const path = config.ios.path;
@@ -67,4 +88,4 @@ const upload = async (config) => {
   spinner.succeed('iOS Uploading Finished!');
 };
 
-module.exports = { build, upload };
+module.exports = { version, build, upload };
