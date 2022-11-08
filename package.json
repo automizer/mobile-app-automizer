@@ -30,6 +30,8 @@
   },
   "homepage": "https://github.com/automizer/mobile-app-automizer#readme",
   "dependencies": {
+    "2": "^3.0.0",
+    "command-line-args": "^5.2.1",
     "enquirer": "2.3.6",
     "mobile-app-cleaner": "0.0.1",
     "ora": "5.4.0"
