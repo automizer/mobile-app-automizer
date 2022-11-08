@@ -1,5 +1,13 @@
 #!/usr/bin/env node
 const { hasConfig, hasParam } = require('./utils/utils');
+const commandLineArgs = require('command-line-args');
+
+const arguments = commandLineArgs([
+  { name: 'packageVersion' },
+  { name: 'iosVersion' },
+  { name: 'androidVersion' },
+  { name: 'step' },
+]);
 
 const cli = () => {
   if (!hasConfig() || hasParam('--install')) {
@@ -7,7 +15,7 @@ const cli = () => {
   } else if (hasParam('--clean')) {
     require('./src/cleaner')();
   } else {
-    require('./src/automizer')();
+    require('./src/automizer')(arguments);
   }
 };
 
