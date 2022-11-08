@@ -6,7 +6,26 @@ const { greetings } = require('../utils/utils');
 
 const automizer = async (arguments) => {
   greetings();
+  const step = arguments.step;
 
+  if (step === 'version') {
+    await version.update(arguments);
+    await ios.version(config, arguments);
+    await android.version(config, arguments);
+    return;
+  }
+
+  if (step === 'build') {
+    await ios.build(config);
+    await android.build(config);
+    return;
+  }
+
+  if (step === 'upload') {
+    await ios.upload(config);
+    await android.upload(config);
+    return;
+  }
 
   (config.ios.version || config.android.version) && await version.update(arguments);
 
