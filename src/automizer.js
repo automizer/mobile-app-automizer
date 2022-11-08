@@ -29,8 +29,8 @@ const automizer = async (arguments) => {
 
   (config.ios.version || config.android.version) && await version.update(arguments);
 
-  config.ios.version && await ios.version(config);
-  config.android.version && await android.version(config);
+  config.ios.version && await ios.version(config, arguments);
+  config.android.version && await android.version(config, arguments);
 
   config.ios.build.enabled && await ios.build(config);
   config.android.build.enabled && await android.build(config);
