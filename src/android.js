@@ -2,6 +2,24 @@ const { run, env } = require('../utils/utils');
 const fs = require('fs');
 const ora = require('ora');
 
+const version = async (config, arguments) => {
+  if (env !== 'production') return;
+
+  const { version } = require(`${process.cwd()}/package.json`);
+
+  const spinner = ora('Android Versioning...').start();
+  const gradleFile = fs.readFileSync(config.android.path.gradle, 'utf8');
+  const gradle = gradleFile
+    .replace(/versionName (["'])(.*)["']/, `versionName $1${version}$1`)
+    .replace(/versionCode (\d+)/, (match, p1) => {
+      return `versionCode ${arguments.androidVersion ?? parseInt(p1, 10) + 1}`;
+    });
+
+  fs.writeFileSync(config.android.path.gradle, gradle);
+
+  spinner.succeed('Android Versioning Finished!');
+};
+
 const build = async (config) => {
   const spinner = ora('Android Building...').start();
   const newEnv = env === 'production' ? 'Release' : 'Staging';
@@ -27,4 +45,4 @@ const upload = async (config) => {
   spinner.succeed('Android Uploading Finished!');
 };
 
-module.exports = { build, upload };
+module.exports = { version, build, upload };

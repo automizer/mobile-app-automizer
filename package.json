@@ -1,6 +1,6 @@
 {
   "name": "mobile-app-automizer",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "You can automize iOS and Android app's build, upload and versioning processes.",
   "main": "cli.js",
   "bin": {
@@ -30,6 +30,7 @@
   },
   "homepage": "https://github.com/automizer/mobile-app-automizer#readme",
   "dependencies": {
+    "command-line-args": "^5.2.1",
     "enquirer": "2.3.6",
     "mobile-app-cleaner": "0.0.1",
     "ora": "5.4.0"
