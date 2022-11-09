@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 const { hasConfig, hasParam } = require('./utils/utils');
 const commandLineArgs = require('command-line-args');
+const packageJson = require('./package.json');
 
 const arguments = commandLineArgs([
   { name: 'packageVersion' },
@@ -10,7 +11,10 @@ const arguments = commandLineArgs([
 ]);
 
 const cli = () => {
-  if (!hasConfig() || hasParam('--install')) {
+  if(hasParam('--help')){
+    console.log(packageJson.version)
+  }
+  else if (!hasConfig() || hasParam('--install')) {
     require('./src/installer')();
   } else if (hasParam('--clean')) {
     require('./src/cleaner')();
