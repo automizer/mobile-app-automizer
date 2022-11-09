@@ -1,4 +1,4 @@
-const { run, env } = require('../utils/utils');
+const { run, env, hasParam } = require('../utils/utils');
 
 const update = async (arguments) => {
   if (env !== 'production') return;
